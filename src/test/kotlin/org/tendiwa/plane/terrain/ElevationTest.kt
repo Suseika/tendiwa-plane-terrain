@@ -1,5 +1,6 @@
 package org.tendiwa.plane.terrain
 
+import org.junit.Assert.assertSame
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
@@ -26,5 +27,10 @@ class ElevationTest {
     fun `fails to return a height that is too high`() {
         expectRule.expectIllegalArgument("Height must be between")
         Elevation(MAX_HEIGHT + 1)
+    }
+
+    @Test
+    fun `stores all valid values`() {
+        assertSame(Elevation(8), Elevation(8))
     }
 }
