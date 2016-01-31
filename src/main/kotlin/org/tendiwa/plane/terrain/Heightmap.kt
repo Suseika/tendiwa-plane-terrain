@@ -6,8 +6,9 @@ import org.tendiwa.plane.grid.tiles.Tile
  * Maps coordinates to height above sea level.
  */
 interface Heightmap {
-    fun height(x: Int, y: Int): Int
+    fun elevation(x: Int, y: Int): Elevation
 
-    fun height(tile: Tile): Int =
-        height(tile.x, tile.y)
+    fun elevation(tile: Tile): Elevation =
+        elevation(tile.x, tile.y)
 }
+
