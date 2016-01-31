@@ -1,9 +1,6 @@
 package org.tendiwa.plane.terrain
 
-import org.tendiwa.plane.grid.masks.ArrayGridMask
-import org.tendiwa.plane.grid.masks.BoundedGridMask
-import org.tendiwa.plane.grid.masks.GridMask
-import org.tendiwa.plane.grid.masks.boundedBy
+import org.tendiwa.plane.grid.masks.*
 import org.tendiwa.plane.grid.rectangles.GridRectangle
 
 /**
@@ -22,8 +19,5 @@ class BinaryTopography(
         )
 
     val water: BoundedGridMask =
-        ArrayGridMask(
-            GridMask { x, y -> heightmap.elevation(x, y) <= seaLevel }
-                .boundedBy(region)
-        )
+        ArrayGridMask(ground.inverse.boundedBy(region))
 }
