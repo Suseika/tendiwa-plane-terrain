@@ -14,7 +14,7 @@ class ElevationTest {
 
     @Test
     fun `contains cached values`() {
-        assertEquals(3, Elevation(3).index)
+        assertEquals(3, Elevation(3).height)
     }
 
     @Test
@@ -32,5 +32,21 @@ class ElevationTest {
     @Test
     fun `stores all valid values`() {
         assertSame(Elevation(8), Elevation(8))
+    }
+
+    @Test
+    fun `returns min elevation`() {
+        assertEquals(
+            MIN_HEIGHT,
+            Elevation(Elevation.MIN_HEIGHT).height
+        )
+    }
+
+    @Test
+    fun `returns max elevation`() {
+        assertEquals(
+            MAX_HEIGHT,
+            Elevation(Elevation.MAX_HEIGHT).height
+        )
     }
 }

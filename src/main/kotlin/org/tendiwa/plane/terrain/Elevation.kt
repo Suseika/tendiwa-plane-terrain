@@ -2,7 +2,7 @@ package org.tendiwa.plane.terrain
 
 import org.tendiwa.tools.argumentConstraint
 
-data class Elevation private constructor(val index: Int) {
+data class Elevation private constructor(val height: Int) {
     companion object : (Int) -> Elevation {
         override fun invoke(index: Int): Elevation {
             argumentConstraint(
@@ -14,15 +14,15 @@ data class Elevation private constructor(val index: Int) {
                 }
 
             )
-            return heights[index]
+            return heights[index - MIN_HEIGHT]
         }
-
-        val heights: Array<Elevation> = IntRange(-127, 128)
-            .map { Elevation(it) }
-            .toTypedArray()
 
         val MIN_HEIGHT = -127
 
         val MAX_HEIGHT = 128
+
+        private val heights: Array<Elevation> = IntRange(MIN_HEIGHT, MAX_HEIGHT)
+            .map { Elevation(it) }
+            .toTypedArray()
     }
 }
