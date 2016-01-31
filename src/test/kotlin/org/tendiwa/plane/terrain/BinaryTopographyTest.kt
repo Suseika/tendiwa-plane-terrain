@@ -13,9 +13,9 @@ class BinaryTopographyTest {
         heightmap = object : Heightmap {
             override fun elevation(x: Int, y: Int): Elevation =
                 if ((x + y) % 2 == 0) {
-                    Elevation(1)
+                    Elevation(0)
                 } else {
-                    Elevation(-1)
+                    Elevation(1)
                 }
         },
         seaLevel = Elevation(0),

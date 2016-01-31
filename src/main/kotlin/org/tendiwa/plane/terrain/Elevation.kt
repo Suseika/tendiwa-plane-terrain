@@ -17,9 +17,9 @@ data class Elevation private constructor(val height: Int) {
             return heights[index - MIN_HEIGHT]
         }
 
-        val MIN_HEIGHT = -127
+        val MIN_HEIGHT = 0
 
-        val MAX_HEIGHT = 128
+        val MAX_HEIGHT = 256
 
         private val heights: Array<Elevation> = IntRange(MIN_HEIGHT, MAX_HEIGHT)
             .map { Elevation(it) }
