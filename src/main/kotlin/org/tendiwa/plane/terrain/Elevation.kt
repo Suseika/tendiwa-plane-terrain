@@ -25,4 +25,7 @@ data class Elevation private constructor(val height: Int) {
             .map { Elevation(it) }
             .toTypedArray()
     }
+
+    operator fun compareTo(other: Elevation) : Int =
+        this.height - other.height
 }

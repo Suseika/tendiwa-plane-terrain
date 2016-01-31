@@ -49,4 +49,11 @@ class ElevationTest {
             Elevation(Elevation.MAX_HEIGHT).height
         )
     }
+
+    @Test
+    fun `can be compared to other elevation`() {
+        assert(Elevation(3) < Elevation(4))
+        assert(Elevation(5) > Elevation(1))
+        assert(Elevation(0) == Elevation(0))
+    }
 }
